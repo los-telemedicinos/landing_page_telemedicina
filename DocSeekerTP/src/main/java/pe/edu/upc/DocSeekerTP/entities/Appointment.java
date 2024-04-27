@@ -1,18 +1,20 @@
 package pe.edu.upc.DocSeekerTP.entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Appointment {
     private int id;
-    private String appointmentDate;
+    private LocalDate appointmentDate;
     private String reason;
     private String state;
     private Date registerDate_Appointment;
     private int Patient_id_Patient;
     private int prescription_id;
     private int Doctor_id_Doctor;
+    public Appointment(){}
 
-    public Appointment(int id, String appointmentDate, String reason, String state, Date registerDate_Appointment, int patient_id_Patient, int prescription_id, int doctor_id_Doctor) {
+    public Appointment(int id, LocalDate appointmentDate, String reason, String state, Date registerDate_Appointment, int patient_id_Patient, int prescription_id, int doctor_id_Doctor) {
         this.id = id;
         this.appointmentDate = appointmentDate;
         this.reason = reason;
@@ -31,11 +33,11 @@ public class Appointment {
         this.id = id;
     }
 
-    public String getAppointmentDate() {
+    public LocalDate getAppointmentDate() {
         return appointmentDate;
     }
 
-    public void setAppointmentDate(String appointmentDate) {
+    public void setAppointmentDate(LocalDate appointmentDate) {
         this.appointmentDate = appointmentDate;
     }
 

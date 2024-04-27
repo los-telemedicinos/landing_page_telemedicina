@@ -1,5 +1,7 @@
 package pe.edu.upc.DocSeekerTP.entities;
 
+import java.beans.Transient;
+
 public class Prescription {
     private int id;
     private String medicine;
