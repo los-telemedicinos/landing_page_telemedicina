@@ -8,13 +8,13 @@ public class Appointment {
     private LocalDate appointmentDate;
     private String reason;
     private String state;
-    private Date registerDate_Appointment;
+    private LocalDate registerDate_Appointment;
     private int Patient_id_Patient;
     private int prescription_id;
     private int Doctor_id_Doctor;
     public Appointment(){}
 
-    public Appointment(int id, LocalDate appointmentDate, String reason, String state, Date registerDate_Appointment, int patient_id_Patient, int prescription_id, int doctor_id_Doctor) {
+    public Appointment(int id, LocalDate appointmentDate, String reason, String state, LocalDate registerDate_Appointment, int patient_id_Patient, int prescription_id, int doctor_id_Doctor) {
         this.id = id;
         this.appointmentDate = appointmentDate;
         this.reason = reason;
@@ -57,11 +57,11 @@ public class Appointment {
         this.state = state;
     }
 
-    public Date getRegisterDate_Appointment() {
+    public LocalDate getRegisterDate_Appointment() {
         return registerDate_Appointment;
     }
 
-    public void setRegisterDate_Appointment(Date registerDate_Appointment) {
+    public void setRegisterDate_Appointment(LocalDate registerDate_Appointment) {
         this.registerDate_Appointment = registerDate_Appointment;
     }
 
