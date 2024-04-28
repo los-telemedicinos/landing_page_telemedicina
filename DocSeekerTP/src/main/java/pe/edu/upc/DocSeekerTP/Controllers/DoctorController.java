@@ -1,4 +1,4 @@
-package pe.edu.upc.DocSeekerTP.controllers;
+package pe.edu.upc.DocSeekerTP.Controllers;
 
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.DocSeekerTP.Entities.Doctor;

@@ -1,9 +1,8 @@
-package pe.edu.upc.DocSeekerTP.controllers;
+package pe.edu.upc.DocSeekerTP.Controllers;
 
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.DocSeekerTP.Entities.PatientXIllness;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
