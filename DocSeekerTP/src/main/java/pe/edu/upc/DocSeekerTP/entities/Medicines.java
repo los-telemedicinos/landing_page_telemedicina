@@ -1,27 +1,28 @@
-package pe.edu.upc.DocSeekerTP.entities;
+package pe.edu.upc.DocSeekerTP.Entities;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Data
+@Setter
+@Getter
 
 public class Medicines {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_Medicines;
     private String name_Medicines;
 
+    public Medicines() {}
+
     public Medicines(int id_Medicines, String name_Medicines) {
         this.id_Medicines = id_Medicines;
-        this.name_Medicines = name_Medicines;
-    }
-
-    public int getId_Medicines() {
-        return id_Medicines;
-    }
-
-    public void setId_Medicines(int id_Medicines) {
-        this.id_Medicines = id_Medicines;
-    }
-
-    public String getName_Medicines() {
-        return name_Medicines;
-    }
-
-    public void setName_Medicines(String name_Medicines) {
         this.name_Medicines = name_Medicines;
     }
 }

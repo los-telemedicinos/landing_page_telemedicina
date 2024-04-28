@@ -1,59 +1,37 @@
-package pe.edu.upc.DocSeekerTP.entities;
+package pe.edu.upc.DocSeekerTP.Entities;
 
-import java.util.Date;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDate;
+
+@Entity
+@Data
+@Setter
+@Getter
 
 public class Doctor_Time {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_time;
     private int Doctor_id_doctor;
-    private Date day;
+    private LocalDate day;
     private String startTime;
     private String endTime;
+    
+    public Doctor_Time() {}
 
-    public Doctor_Time(int id_time, int doctor_id_doctor, Date day, String startTime, String endTime) {
+    public Doctor_Time(int id_time, int doctor_id_doctor, LocalDate day, String startTime, String endTime) {
         this.id_time = id_time;
         Doctor_id_doctor = doctor_id_doctor;
         this.day = day;
         this.startTime = startTime;
-        this.endTime = endTime;
-    }
-
-    public int getId_time() {
-        return id_time;
-    }
-
-    public void setId_time(int id_time) {
-        this.id_time = id_time;
-    }
-
-    public int getDoctor_id_doctor() {
-        return Doctor_id_doctor;
-    }
-
-    public void setDoctor_id_doctor(int doctor_id_doctor) {
-        Doctor_id_doctor = doctor_id_doctor;
-    }
-
-    public Date getDay() {
-        return day;
-    }
-
-    public void setDay(Date day) {
-        this.day = day;
-    }
-
-    public String getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 }
