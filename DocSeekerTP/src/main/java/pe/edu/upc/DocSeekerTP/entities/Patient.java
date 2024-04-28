@@ -1,13 +1,23 @@
-package pe.edu.upc.DocSeekerTP.entities;
+package pe.edu.upc.DocSeekerTP.Entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
 
-@Setter
+@Entity
+@Data
 @Getter
+@Setter
+
 public class Patient {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_Patient;
     private String name;
     private String lastName;
@@ -19,6 +29,7 @@ public class Patient {
     private String DNI;
 
     public Patient(){}
+
     public Patient(int id_Patient, String name, String lastName, Date bithdate, String address, int userId, String email, String phoneNumber, String DNI) {
         this.id_Patient = id_Patient;
         this.name = name;

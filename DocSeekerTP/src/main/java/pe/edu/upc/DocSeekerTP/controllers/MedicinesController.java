@@ -1,7 +1,7 @@
 package pe.edu.upc.DocSeekerTP.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.DocSeekerTP.entities.Medicines;
+import pe.edu.upc.DocSeekerTP.Entities.Medicines;
 
 import java.util.ArrayList;
 import java.util.List;

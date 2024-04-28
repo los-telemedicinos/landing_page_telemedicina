@@ -1,11 +1,21 @@
-package pe.edu.upc.DocSeekerTP.entities;
+package pe.edu.upc.DocSeekerTP.Entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
+@Data
 @Setter
 @Getter
+
 public class ChronicIllness {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_Illness;
     private boolean asthma;
     private boolean diabetes;
@@ -18,9 +28,7 @@ public class ChronicIllness {
     private boolean cardiovascular;
     private String others;
 
-    public ChronicIllness(){
-
-    }
+    public ChronicIllness(){}
 
     public ChronicIllness(int id_Illness, boolean asthma, boolean diabetes, boolean arthritis, boolean hypertension, boolean depression, boolean highCholesterol, boolean gynecologicalProblems, boolean osteoporosis, boolean cardiovascular, String others) {
         this.id_Illness = id_Illness;
@@ -35,5 +43,4 @@ public class ChronicIllness {
         this.cardiovascular = cardiovascular;
         this.others = others;
     }
-
 }

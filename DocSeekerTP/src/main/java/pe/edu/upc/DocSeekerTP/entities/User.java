@@ -1,43 +1,29 @@
-package pe.edu.upc.DocSeekerTP.entities;
+package pe.edu.upc.DocSeekerTP.Entities;
+
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Data
+@Table(name="users")
+@Getter
+@Setter
 
 public class User {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String userName;
     private String password;
     private boolean enable;
 
-    public User(int id, String userName, String password, boolean enable) {
-        this.id = id;
-        this.userName = userName;
-        this.password = password;
-        this.enable = enable;
-    }
-
     public User() {}
 
-    public int getId() {return id;}
-    public void setId(int id) {this.id = id;}
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
+    public User(String userName, String password, boolean enable) {
         this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
         this.password = password;
-    }
-
-    public boolean isEnable() {
-        return enable;
-    }
-
-    public void setEnable(boolean enable) {
         this.enable = enable;
     }
 }

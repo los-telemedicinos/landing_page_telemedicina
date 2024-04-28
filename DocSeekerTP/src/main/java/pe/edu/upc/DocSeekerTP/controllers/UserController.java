@@ -1,7 +1,7 @@
 package pe.edu.upc.DocSeekerTP.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.DocSeekerTP.entities.User;
+import pe.edu.upc.DocSeekerTP.Entities.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,6 @@ public class UserController {
     List<User> getAll(){
         List<User> list_User = new ArrayList<>();
         User user = new User();
-        user.setId(1);
         user.setUserName("Manuel");
         user.setPassword("12345678holas");
         user.setEnable(true);
@@ -24,7 +23,6 @@ public class UserController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     User get(@PathVariable long id){
         User user = new User();
-        user.setId(1);
         user.setUserName("Manuel");
         user.setPassword("12345678holas");
         user.setEnable(true);

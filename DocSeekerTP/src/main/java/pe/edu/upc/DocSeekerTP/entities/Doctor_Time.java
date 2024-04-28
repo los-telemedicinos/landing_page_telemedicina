@@ -1,9 +1,24 @@
-package pe.edu.upc.DocSeekerTP.entities;
+package pe.edu.upc.DocSeekerTP.Entities;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
+@Entity
+@Data
+@Setter
+@Getter
+
 public class Doctor_Time {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_time;
     private int Doctor_id_doctor;
     private LocalDate day;
@@ -17,46 +32,6 @@ public class Doctor_Time {
         Doctor_id_doctor = doctor_id_doctor;
         this.day = day;
         this.startTime = startTime;
-        this.endTime = endTime;
-    }
-
-    public int getId_time() {
-        return id_time;
-    }
-
-    public void setId_time(int id_time) {
-        this.id_time = id_time;
-    }
-
-    public int getDoctor_id_doctor() {
-        return Doctor_id_doctor;
-    }
-
-    public void setDoctor_id_doctor(int doctor_id_doctor) {
-        Doctor_id_doctor = doctor_id_doctor;
-    }
-
-    public LocalDate getDay() {
-        return day;
-    }
-
-    public void setDay(LocalDate day) {
-        this.day = day;
-    }
-
-    public String getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 }

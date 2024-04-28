@@ -1,42 +1,31 @@
-package pe.edu.upc.DocSeekerTP.entities;
+package pe.edu.upc.DocSeekerTP.Entities;
 
-import lombok.NoArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.beans.Transient;
 
-@NoArgsConstructor
+@Entity
+@Data
+@Setter
+@Getter
+
 public class Prescription {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String medicine;
     private String details;
 
+    public Prescription(){}
+
     public Prescription(int id, String medicine, String details) {
         this.id = id;
         this.medicine = medicine;
-        this.details = details;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getMedicine() {
-        return medicine;
-    }
-
-    public void setMedicine(String medicine) {
-        this.medicine = medicine;
-    }
-
-    public String getDetails() {
-        return details;
-    }
-
-    public void setDetails(String details) {
         this.details = details;
     }
 }

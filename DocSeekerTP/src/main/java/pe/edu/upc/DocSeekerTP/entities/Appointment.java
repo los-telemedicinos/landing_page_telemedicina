@@ -1,14 +1,23 @@
-package pe.edu.upc.DocSeekerTP.entities;
+package pe.edu.upc.DocSeekerTP.Entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.Date;
 
+@Entity
+@Data
 @Setter
 @Getter
+
 public class Appointment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private LocalDate appointmentDate;
     private String reason;
@@ -17,6 +26,7 @@ public class Appointment {
     private int Patient_id_Patient;
     private int prescription_id;
     private int Doctor_id_Doctor;
+
     public Appointment(){}
 
     public Appointment(int id, LocalDate appointmentDate, String reason, String state, LocalDate registerDate_Appointment, int patient_id_Patient, int prescription_id, int doctor_id_Doctor) {
@@ -29,5 +39,4 @@ public class Appointment {
         this.prescription_id = prescription_id;
         Doctor_id_Doctor = doctor_id_Doctor;
     }
-
 }

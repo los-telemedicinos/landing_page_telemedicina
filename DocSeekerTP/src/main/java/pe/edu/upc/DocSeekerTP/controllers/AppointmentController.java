@@ -2,7 +2,7 @@ package pe.edu.upc.DocSeekerTP.controllers;
 
 import lombok.Data;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.DocSeekerTP.entities.Appointment;
+import pe.edu.upc.DocSeekerTP.Entities.Appointment;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
