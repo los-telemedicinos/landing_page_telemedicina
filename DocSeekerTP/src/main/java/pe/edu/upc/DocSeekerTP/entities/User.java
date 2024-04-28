@@ -22,26 +22,19 @@ public class User {
     private String password;
     private boolean enable;
 
-    public User() {}
-
-    public User(String userName, String password, boolean enable) {
-        this.userName = userName;
-        this.password = password;
-        this.enable = enable;
-    }
     @JsonIgnore
-    @javax.persistence.ManyToMany(fetch = javax.persistence.FetchType.EAGER)
-    @javax.persistence.JoinTable(
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
             name = "users_authorities",
             joinColumns = {
-                    @javax.persistence.JoinColumn(
+                    @JoinColumn (
                             name="user_id",
                             referencedColumnName = "id",
                             nullable = false
                     )
             },
             inverseJoinColumns = {
-                    @javax.persistence.JoinColumn(
+                    @JoinColumn (
                             name = "authority_id",
                             referencedColumnName = "id",
                             nullable = false
@@ -49,6 +42,15 @@ public class User {
             }
     )
     private List<Authority> authorities;
+
+    public User() {}
+
+    public User(String userName, String password, boolean enable) {
+        this.userName = userName;
+        this.password = password;
+        this.enable = enable;
+    }
+
 
     public boolean isEnabled() {
         return true;
