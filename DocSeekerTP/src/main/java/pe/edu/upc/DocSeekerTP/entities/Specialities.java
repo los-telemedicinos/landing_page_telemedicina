@@ -8,6 +8,7 @@ public class Specialities {
         this.id_speciality = id_speciality;
         this.speciality_name = speciality_name;
     }
+    public Specialities() {}
 
     public int getId_speciality() {
         return id_speciality;

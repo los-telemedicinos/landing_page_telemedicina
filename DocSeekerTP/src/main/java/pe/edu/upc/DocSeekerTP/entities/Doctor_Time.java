@@ -1,15 +1,18 @@
 package pe.edu.upc.DocSeekerTP.entities;
 
-import java.util.Date;
+
+import java.time.LocalDate;
 
 public class Doctor_Time {
     private int id_time;
     private int Doctor_id_doctor;
-    private Date day;
+    private LocalDate day;
     private String startTime;
     private String endTime;
+    
+    public Doctor_Time() {}
 
-    public Doctor_Time(int id_time, int doctor_id_doctor, Date day, String startTime, String endTime) {
+    public Doctor_Time(int id_time, int doctor_id_doctor, LocalDate day, String startTime, String endTime) {
         this.id_time = id_time;
         Doctor_id_doctor = doctor_id_doctor;
         this.day = day;
@@ -33,11 +36,11 @@ public class Doctor_Time {
         Doctor_id_doctor = doctor_id_doctor;
     }
 
-    public Date getDay() {
+    public LocalDate getDay() {
         return day;
     }
 
-    public void setDay(Date day) {
+    public void setDay(LocalDate day) {
         this.day = day;
     }
 

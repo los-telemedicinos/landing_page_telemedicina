@@ -1,7 +1,10 @@
 package pe.edu.upc.DocSeekerTP.entities;
 
+import lombok.NoArgsConstructor;
+
 import java.beans.Transient;
 
+@NoArgsConstructor
 public class Prescription {
     private int id;
     private String medicine;
