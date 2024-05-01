@@ -1,29 +1,27 @@
 package pe.edu.upc.DocSeekerTP.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="prescriptions")
-public class Prescription {
+@Table(name="specialities")
+public class Speciality {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private int id_speciality;
+    private String speciality_name;
 
-    private String medicine;
-    private String details;
-
-    @ManyToOne
-    @JoinColumn(name = "appointment_id")
-    private Appointment appointment;
-
-    @ManyToOne
-    @JoinColumn(name = "medicine_id")
-    private Medicine medicines;
+    @JsonIgnore
+    @OneToMany(mappedBy = "speciality")
+    private List<Doctor> doctors;
 }

@@ -10,20 +10,21 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="prescriptions")
-public class Prescription {
+@Table(name="patientxIllness")
+public class ChronicXDisease {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String medicine;
-    private String details;
+    private String bloodType;
+    private String privateMedicine;
 
     @ManyToOne
-    @JoinColumn(name = "appointment_id")
-    private Appointment appointment;
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
 
     @ManyToOne
-    @JoinColumn(name = "medicine_id")
-    private Medicine medicines;
+    @JoinColumn(name = "chronicDiseases_id")
+    private ChronicDiseases chronicDiseases;
+
 }

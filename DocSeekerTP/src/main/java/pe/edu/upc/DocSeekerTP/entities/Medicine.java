@@ -5,25 +5,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="prescriptions")
-public class Prescription {
+@Table(name="medicines")
+public class Medicine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name_Medicines;
 
-    private String medicine;
-    private String details;
-
-    @ManyToOne
-    @JoinColumn(name = "appointment_id")
-    private Appointment appointment;
-
-    @ManyToOne
-    @JoinColumn(name = "medicine_id")
-    private Medicine medicines;
+    @OneToMany(mappedBy = "medicine", cascade = CascadeType.ALL)
+    private List<Prescription> prescriptions;
 }
