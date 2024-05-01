@@ -22,7 +22,6 @@ public class DocSeekerTpApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DocSeekerTpApplication.class, args);
 	}
-
 	@Bean
 	public CommandLineRunner mappingDemo(
 			UserRepository userRepository,
@@ -51,4 +50,5 @@ public class DocSeekerTpApplication {
 					"20 años de experiencia","ruiz@gmail.com", "75707505", 234, null,null,null ));
 		};
 	}
+
 }
