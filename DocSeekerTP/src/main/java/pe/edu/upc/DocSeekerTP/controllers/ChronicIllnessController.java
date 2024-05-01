@@ -9,7 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("list_chronic_illness")
 public class ChronicIllnessController {
-
+//hola
     @RequestMapping(value = "/", method = RequestMethod.GET)
     List<ChronicIllness> getAll(){
         List<ChronicIllness> list_ChronicIllness = new ArrayList<>();
