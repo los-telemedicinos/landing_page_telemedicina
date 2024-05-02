@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import pe.edu.upc.DocSeekerTP.Repository.AuthorityRepository;
 import pe.edu.upc.DocSeekerTP.Repository.DoctorRepository;
 import pe.edu.upc.DocSeekerTP.Repository.UserRepository;
+import pe.edu.upc.DocSeekerTP.Services.DoctorService;
 import pe.edu.upc.DocSeekerTP.entities.*;
 
 import java.text.SimpleDateFormat;
