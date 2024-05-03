@@ -25,7 +25,6 @@ public class Authority {
     @ManyToMany(mappedBy = "authorities")
     private List<User> users;
 
-
     public Authority(AuthorityName name) {
         this.name = name;
     }

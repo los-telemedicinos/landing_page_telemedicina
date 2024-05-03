@@ -17,13 +17,11 @@ public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String appointmentDate;
     private String reason;
     private String state;
     private Date registerDate_Appointment;
-    private int prescription_id;
-    private int Doctor_id_Doctor;
+
 
     @ManyToOne
     @JoinColumn(name = "patient_id")

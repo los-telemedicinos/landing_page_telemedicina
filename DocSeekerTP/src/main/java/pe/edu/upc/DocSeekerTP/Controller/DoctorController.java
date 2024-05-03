@@ -25,7 +25,8 @@ public class DoctorController {
         return new ResponseEntity<List<Doctor>>(doctors, HttpStatus.OK);
     }
 
-    @PostMapping("/doctors")
+
+    @PostMapping("/doctors/register")
     public ResponseEntity<Doctor> createDoctor(@RequestBody Doctor doctor) {
         Doctor newDoctor = doctorService.save(doctor);
         return new ResponseEntity<Doctor>(newDoctor, HttpStatus.CREATED);

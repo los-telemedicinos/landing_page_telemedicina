@@ -47,7 +47,8 @@ http://localhost:8080/swagger-ui/index.html
         http.cors(withDefaults());
         http.authorizeHttpRequests( (auth) ->auth
                 .antMatchers(AUTH_WHITELIST).permitAll()
-                .antMatchers("/api/doctors/**").hasAnyAuthority("ROLE_PATIENT")
+                .antMatchers("/api/doctors/").hasAnyAuthority("ROLE_PATIENT")
+                .antMatchers("/api/doctors/register/**").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/api/Register/**").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/api/users/**").permitAll()
                 .anyRequest().authenticated()
@@ -55,8 +56,6 @@ http://localhost:8080/swagger-ui/index.html
         http.sessionManagement( (session)-> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         return http.build();
     }
-
-
 
     @Bean
     public PasswordEncoder passwordEncoder() {
