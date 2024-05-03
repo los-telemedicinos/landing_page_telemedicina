@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.ResponseErrorHandler;
 import pe.edu.upc.DocSeekerTP.Services.DoctorService;
 import pe.edu.upc.DocSeekerTP.entities.Doctor;
 
@@ -19,12 +18,11 @@ public class DoctorController {
     DoctorService doctorService;
 
     //http://localhost:8080/api/doctors
-    @GetMapping("/doctors")
+   @GetMapping("/doctors")
     public ResponseEntity<List<Doctor>> getDoctor() {
         List<Doctor> doctors = doctorService.listAll();
         return new ResponseEntity<List<Doctor>>(doctors, HttpStatus.OK);
     }
-
 
     @PostMapping("/doctors/register")
     public ResponseEntity<Doctor> createDoctor(@RequestBody Doctor doctor) {

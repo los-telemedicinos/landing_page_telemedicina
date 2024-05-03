@@ -27,11 +27,11 @@ public class Patient {
     private String phoneNumber;
     private String DNI;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "patient")
     private List<Appointment> appointments;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "patient")
-    private List<ChronicXDisease> chronicXDiseases;
+    @OneToOne
+    private Technical_file technical_file;
 
 }

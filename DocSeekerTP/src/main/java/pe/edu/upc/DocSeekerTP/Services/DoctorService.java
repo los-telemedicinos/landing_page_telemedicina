@@ -9,4 +9,8 @@ public interface DoctorService {
     public Doctor save(Doctor doctor);
     public void delete(Long id);
     public Doctor findById(Long id);
+    /*
+    public List<Doctor> findDoctorsBySpeciality(String specialityName);
+
+     */
 }

@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "chronicDiseases")
-public class ChronicDiseases {
+public class Technical_file {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,8 +29,9 @@ public class ChronicDiseases {
     private boolean osteoporosis;
     private boolean cardiovascular;
     private String others;
+    private String bloodType;
+    private String privateMedicine;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "chronicDiseases")
-    private List<ChronicXDisease> chronicXDiseases;
+    @OneToOne
+    private Patient patient;
 }

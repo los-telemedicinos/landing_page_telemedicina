@@ -3,6 +3,7 @@ package pe.edu.upc.DocSeekerTP.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -47,7 +48,10 @@ http://localhost:8080/swagger-ui/index.html
         http.cors(withDefaults());
         http.authorizeHttpRequests( (auth) ->auth
                 .antMatchers(AUTH_WHITELIST).permitAll()
-                .antMatchers("/api/doctors/").hasAnyAuthority("ROLE_PATIENT")
+                .antMatchers(HttpMethod.GET, "/api/doctors/").hasAnyAuthority("ROLE_PATIENT")
+                .antMatchers("/time/register").hasAnyAuthority("ROLE_PATIENT")
+                .antMatchers("/api/patient/update/").hasAnyAuthority("ROLE_PATIENT")
+                .antMatchers("/api/appointment/**").hasAnyAuthority("ROLE_PATIENT")
                 .antMatchers("/api/doctors/register/**").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/api/Register/**").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/api/users/**").permitAll()

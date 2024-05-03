@@ -24,4 +24,7 @@ public class Speciality {
     @JsonIgnore
     @OneToMany(mappedBy = "speciality")
     private List<Doctor> doctors;
+
+
+
 }

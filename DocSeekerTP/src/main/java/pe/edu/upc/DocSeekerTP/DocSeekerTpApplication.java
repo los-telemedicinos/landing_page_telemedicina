@@ -9,6 +9,7 @@ import pe.edu.upc.DocSeekerTP.Repository.AuthorityRepository;
 import pe.edu.upc.DocSeekerTP.Repository.DoctorRepository;
 import pe.edu.upc.DocSeekerTP.Repository.UserRepository;
 import pe.edu.upc.DocSeekerTP.Services.DoctorService;
+import pe.edu.upc.DocSeekerTP.Services.PrescriptionService;
 import pe.edu.upc.DocSeekerTP.entities.*;
 
 import java.text.SimpleDateFormat;
@@ -25,7 +26,9 @@ public class DocSeekerTpApplication {
 	public CommandLineRunner mappingDemo(
 			UserRepository userRepository,
 			DoctorRepository doctorRepository,
-			AuthorityRepository authorityRepository
+			AuthorityRepository authorityRepository,
+
+			PrescriptionService prescriptionService
 	){
 		return args -> {
 			authorityRepository.save(new Authority(AuthorityName.ROLE_PATIENT));
@@ -47,10 +50,20 @@ public class DocSeekerTpApplication {
 			SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
 
 			Doctor doctor1= doctorRepository.save(new Doctor(Long.valueOf(0),"Marcos", "Jimenez Ruiz",
-					"20 años de experiencia","ruiz@gmail.com", "75707505", 567432234, null,null,null ));
+					"20 años de experiencia","ruiz@gmail.com", "75707505", 567432234, null, null, null ));
 			Doctor doctor2= doctorRepository.save(new Doctor(Long.valueOf(0),"Hebert", "Bances Rios",
-					"especialista en trato con el paciente","hebertbances@gmail.com", "75707213", 234987657, null,null,null ));
+					"especialista en trato con el paciente","hebertbances@gmail.com", "75707213", 234987657, null,null, null ));
 		};
+
+
+
+
+
+
+
+
+
+
 	}
 
 }

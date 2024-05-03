@@ -24,12 +24,13 @@ public class Doctor {
     private String dni;
     private int tuitionNumber;
 
-    @ManyToOne
-    @JoinColumn(name = "speciality_id")
-    private Speciality speciality;
-
     @OneToMany(mappedBy = "doctor")
     private List<Doctor_Time> doctorTimes;
+
+    @ManyToOne
+    @JoinColumn(name="speciality_id")
+    private Speciality speciality ;
+
 
     @OneToMany(mappedBy = "doctor")
     private List<Appointment> appointments;

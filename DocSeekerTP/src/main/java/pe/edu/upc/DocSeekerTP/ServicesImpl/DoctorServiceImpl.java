@@ -1,12 +1,15 @@
 package pe.edu.upc.DocSeekerTP.ServicesImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.DocSeekerTP.Exceptions.IncompleteDataException;
 import pe.edu.upc.DocSeekerTP.Exceptions.ResourceNotFoundException;
 import pe.edu.upc.DocSeekerTP.Repository.DoctorRepository;
+import pe.edu.upc.DocSeekerTP.Repository.SpecialityRepository;
 import pe.edu.upc.DocSeekerTP.Services.DoctorService;
 import pe.edu.upc.DocSeekerTP.entities.Doctor;
+import pe.edu.upc.DocSeekerTP.entities.Speciality;
 
 import java.util.List;
 
@@ -45,4 +48,19 @@ public class DoctorServiceImpl implements DoctorService {
          }
          return doctorFound;
     }
+/*
+    @Autowired
+    SpecialityRepository specialityRepository;
+
+    public List<Doctor> findDoctorsBySpeciality(String specialityName) {
+        Speciality speciality = specialityRepository.findByName(specialityName);
+        if (speciality != null) {
+            return doctorRepository.findBySpeciality(speciality);
+        } else {
+            // Manejo de la situación en la que la especialidad no existe
+            throw new ResourceNotFoundException("La especialidad no existe" +String.valueOf(specialityName));
+        }
+    }
+
+ */
 }
