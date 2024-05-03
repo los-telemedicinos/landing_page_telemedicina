@@ -45,8 +45,11 @@ public class DocSeekerTpApplication {
 					)
 			);
 			SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
+
 			Doctor doctor1= doctorRepository.save(new Doctor(Long.valueOf(0),"Marcos", "Jimenez Ruiz",
-					"20 años de experiencia","ruiz@gmail.com", "75707505", 234, null,null,null ));
+					"20 años de experiencia","ruiz@gmail.com", "75707505", 567432234, null,null,null ));
+			Doctor doctor2= doctorRepository.save(new Doctor(Long.valueOf(0),"Hebert", "Bances Rios",
+					"especialista en trato con el paciente","hebertbances@gmail.com", "75707213", 234987657, null,null,null ));
 		};
 	}
 
