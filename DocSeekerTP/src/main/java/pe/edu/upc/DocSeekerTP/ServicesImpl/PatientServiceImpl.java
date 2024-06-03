@@ -18,11 +18,11 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public List<Patient> listAll() {
-        List<Patient> employees = patientRepository.findAll();
-        for (Patient e: employees) {
+        List<Patient> patients = patientRepository.findAll();
+        for (Patient e: patients) {
             e.setAppointments(null);
         }
-        return employees;
+        return patients;
     }
 
     @Override
@@ -36,13 +36,17 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public Patient save(Patient patient) {
-        if (patient.getName()==null || patient.getName().isEmpty()) {
-            throw new IncompleteDataException("Employee name can not be null or empty");
+        if (patient.getName()==null || patient.getName().isEmpty() || patient.getDni()==null||
+                patient.getDni().isEmpty()||patient.getEmail().isEmpty()||patient.getAddress().isEmpty()) {
+            throw new IncompleteDataException("Ingrese todos los datos");
         }
-        List<Patient> listEmployeeNameDuplicated= patientRepository.findByNameContaining(patient.getName());
-        if (listEmployeeNameDuplicated.size()>1 || (listEmployeeNameDuplicated.size()==1 && !listEmployeeNameDuplicated.get(0).getId().equals(patient.getId())) ) {
-            throw new KeyRepeatedDataException("Employee name can not be duplicated");
+        List<Patient> listPatientDuplicated = patientRepository.findAllByDni(patient.getDni());
+            for (Patient pat : listPatientDuplicated) {
+                if(patient.getDni().equals(pat.getDni())){
+                    throw new KeyRepeatedDataException("Este DNI ya se registró");
+                }
+
+            }
+            return patientRepository.save(patient);
         }
-        return patientRepository.save(patient);
-    }
 }

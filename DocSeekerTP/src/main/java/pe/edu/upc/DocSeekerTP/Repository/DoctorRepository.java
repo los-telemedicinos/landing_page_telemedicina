@@ -7,6 +7,6 @@ import pe.edu.upc.DocSeekerTP.entities.Speciality;
 import java.util.List;
 
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
-    List<Doctor> findBySpeciality(Speciality speciality);
+
 }
 

@@ -18,13 +18,15 @@ public class Speciality {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int id_speciality;
-    private String speciality_name;
+
+    private String specialityName;
 
     @JsonIgnore
     @OneToMany(mappedBy = "speciality")
     private List<Doctor> doctors;
 
-
-
+    public Speciality(Long id, String specialityName) {
+        this.id = id;
+        this.specialityName = specialityName;
+    }
 }

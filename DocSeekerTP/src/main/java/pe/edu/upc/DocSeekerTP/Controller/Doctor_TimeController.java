@@ -29,7 +29,7 @@ public class Doctor_TimeController {
     }
 
     //Pasa el id por el body
-    @DeleteMapping("/doctors/{id}")
+    @DeleteMapping("/time/{id}")
     public ResponseEntity<HttpStatus> deleteTime(@PathVariable("id") Long id) {
         doctorTimeService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

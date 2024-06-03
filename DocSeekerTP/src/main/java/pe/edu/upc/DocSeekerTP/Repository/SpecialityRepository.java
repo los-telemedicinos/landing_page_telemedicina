@@ -4,8 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import pe.edu.upc.DocSeekerTP.entities.Speciality;
 
 public interface SpecialityRepository extends JpaRepository<Speciality, Long> {
-/*
-    Speciality findByName(String specialityName);
 
- */
 }

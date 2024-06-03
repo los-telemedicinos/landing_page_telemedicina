@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "chronicDiseases")
+@Table(name = "tecnical_file")
 public class Technical_file {
 
     @Id
@@ -33,5 +33,7 @@ public class Technical_file {
     private String privateMedicine;
 
     @OneToOne
+    @JoinColumn(name = "patient_id")
     private Patient patient;
+
 }

@@ -15,8 +15,8 @@ public class SpecialityServiceImpl implements SpecialityService {
     SpecialityRepository specialityRepository;
     @Override
     public Speciality save(Speciality especiality){
-        if(especiality.getSpeciality_name()==null||especiality.getSpeciality_name().isEmpty()){
-            throw new IncompleteDataException("El nombre de la especialidad no se ha registrado");
+        if(especiality.getSpecialityName()==null||especiality.getSpecialityName().isEmpty()){
+            throw new IncompleteDataException("Ingrese el nombre de la especialidad");
         }
         return specialityRepository.save(especiality);
     }
@@ -33,5 +33,6 @@ public class SpecialityServiceImpl implements SpecialityService {
         }
         return specialityFound;
     }
+
 
 }

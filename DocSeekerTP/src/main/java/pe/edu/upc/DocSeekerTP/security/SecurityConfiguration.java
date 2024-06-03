@@ -49,7 +49,8 @@ http://localhost:8080/swagger-ui/index.html
         http.authorizeHttpRequests( (auth) ->auth
                 .antMatchers(AUTH_WHITELIST).permitAll()
                 .antMatchers(HttpMethod.GET, "/api/doctors/").hasAnyAuthority("ROLE_PATIENT")
-                .antMatchers("/time/register").hasAnyAuthority("ROLE_PATIENT")
+                .antMatchers(HttpMethod.GET,"/time").hasAnyAuthority("ROLE_PATIENT")
+                .antMatchers(HttpMethod.GET,"/time/**").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/api/patient/update/").hasAnyAuthority("ROLE_PATIENT")
                 .antMatchers("/api/appointment/**").hasAnyAuthority("ROLE_PATIENT")
                 .antMatchers("/api/doctors/register/**").hasAnyAuthority("ROLE_ADMIN")

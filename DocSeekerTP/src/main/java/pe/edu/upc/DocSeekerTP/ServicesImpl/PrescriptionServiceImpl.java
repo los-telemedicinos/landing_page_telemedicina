@@ -2,6 +2,7 @@ package pe.edu.upc.DocSeekerTP.ServicesImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.DocSeekerTP.Exceptions.IncompleteDataException;
 import pe.edu.upc.DocSeekerTP.Exceptions.ResourceNotFoundException;
 import pe.edu.upc.DocSeekerTP.Repository.PrescriptionRepository;
 import pe.edu.upc.DocSeekerTP.Services.PrescriptionService;
@@ -16,12 +17,11 @@ public class PrescriptionServiceImpl implements PrescriptionService {
      PrescriptionRepository prescriptionRepository;
 
     @Override
-    public Doctor_Time save(Doctor_Time doctor_time) {
-        return null;
-    }
-
-    @Override
     public Prescription save(Prescription prescription){
+
+        if (prescription.getMedicine()==null || prescription.getDetails()==null){
+            throw new IncompleteDataException("Ingrese todos los datos");
+        }
         return prescriptionRepository.save(prescription);
     }
     @Override

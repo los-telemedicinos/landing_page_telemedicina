@@ -1,5 +1,6 @@
 package pe.edu.upc.DocSeekerTP.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,7 @@ public class Doctor {
     private String dni;
     private int tuitionNumber;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "doctor")
     private List<Doctor_Time> doctorTimes;
 

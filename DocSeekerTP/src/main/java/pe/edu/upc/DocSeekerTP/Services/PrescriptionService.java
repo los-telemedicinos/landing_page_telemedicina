@@ -6,7 +6,6 @@ import pe.edu.upc.DocSeekerTP.entities.Prescription;
 import java.util.List;
 
 public interface PrescriptionService {
-    public abstract Doctor_Time save(Doctor_Time doctor_time);
 
     public abstract Prescription save(Prescription prescription);
 
