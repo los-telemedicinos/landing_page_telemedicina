@@ -7,8 +7,9 @@ import java.util.List;
 
 public interface SpecialityService {
 
-   public Speciality save(Speciality especiality);
+    List<Speciality> listAll();
 
+    public Speciality save(Speciality especiality);
     void delete(Long id);
     public Speciality findById(Long id);
 

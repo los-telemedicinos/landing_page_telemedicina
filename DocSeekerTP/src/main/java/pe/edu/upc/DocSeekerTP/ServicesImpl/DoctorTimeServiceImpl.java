@@ -9,7 +9,6 @@ import pe.edu.upc.DocSeekerTP.Repository.DoctorTimeRepository;
 import pe.edu.upc.DocSeekerTP.Services.DoctorTimeService;
 import pe.edu.upc.DocSeekerTP.entities.Doctor;
 import pe.edu.upc.DocSeekerTP.entities.Doctor_Time;
-import pe.edu.upc.DocSeekerTP.entities.Patient;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -60,4 +59,5 @@ public class DoctorTimeServiceImpl implements DoctorTimeService {
         }
         return doctorTimes;
     }
+
 }

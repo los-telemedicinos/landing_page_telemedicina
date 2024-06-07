@@ -8,17 +8,24 @@ import pe.edu.upc.DocSeekerTP.Repository.SpecialityRepository;
 import pe.edu.upc.DocSeekerTP.Services.SpecialityService;
 import pe.edu.upc.DocSeekerTP.entities.Speciality;
 
+import java.util.List;
+
 @Service
 public class SpecialityServiceImpl implements SpecialityService {
 
     @Autowired
     SpecialityRepository specialityRepository;
     @Override
-    public Speciality save(Speciality especiality){
-        if(especiality.getSpecialityName()==null||especiality.getSpecialityName().isEmpty()){
+    public List<Speciality> listAll() {
+
+        return specialityRepository.findAll();
+    }
+    @Override
+    public Speciality save(Speciality speciality){
+        if(speciality.getSpecialityName()==null||speciality.getSpecialityName().isEmpty()){
             throw new IncompleteDataException("Ingrese el nombre de la especialidad");
         }
-        return specialityRepository.save(especiality);
+        return specialityRepository.save(speciality);
     }
     @Override
     public void delete(Long id){

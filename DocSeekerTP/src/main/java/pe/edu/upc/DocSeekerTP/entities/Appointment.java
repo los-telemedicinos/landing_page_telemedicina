@@ -1,12 +1,14 @@
 package pe.edu.upc.DocSeekerTP.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -19,19 +21,20 @@ public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String appointmentDate;
+    private LocalDate appointmentDate; // este fecha de cita no es los horarios del doctor?
     private String reason;
     private String state;
-    private Date registerDate_Appointment; //cambiar luego a un tipo date
+    private LocalDate registerDate_Appointment; //cambiar luego a un tipo date
     private Double temperature;
     private Double weight;
 
-    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
-    @JsonIgnore
+
+
     @ManyToOne
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
@@ -40,15 +43,15 @@ public class Appointment {
     @OneToMany(mappedBy = "appointment")
     private List<Prescription> prescriptions;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "register_date_appointment")
-    private Date getRegisterDate_Appointment() {
-        return registerDate_Appointment;
+    public Appointment(Long id, LocalDate appointmentDate, String reason, String state, LocalDate registerDate_Appointment, Double temperature, Double weight, Patient patient, Doctor doctor) {
+        this.id = id;
+        this.appointmentDate = appointmentDate;
+        this.reason = reason;
+        this.state = state;
+        this.registerDate_Appointment = registerDate_Appointment;
+        this.temperature = temperature;
+        this.weight = weight;
+        this.patient = patient;
+        this.doctor = doctor;
     }
-
-    @PrePersist
-    protected void onCreate() {
-        registerDate_Appointment = new Date();
-    }
-
 }

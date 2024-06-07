@@ -1,5 +1,6 @@
 package pe.edu.upc.DocSeekerTP.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,6 +33,7 @@ public class Patient {
     @OneToMany(mappedBy = "patient")
     private List<Appointment> appointments;
 
+    @JsonBackReference
     @OneToOne(mappedBy = "patient")
     private Technical_file technical_file;
 

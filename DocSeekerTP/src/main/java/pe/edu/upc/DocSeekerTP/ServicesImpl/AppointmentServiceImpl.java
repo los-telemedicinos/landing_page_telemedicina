@@ -2,23 +2,31 @@ package pe.edu.upc.DocSeekerTP.ServicesImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.webjars.NotFoundException;
-import pe.edu.upc.DocSeekerTP.Dtos.DTOAppointmentCreate;
 import pe.edu.upc.DocSeekerTP.Dtos.DTOAppointmentSummary;
+import pe.edu.upc.DocSeekerTP.Exceptions.ResourceNotFoundException;
 import pe.edu.upc.DocSeekerTP.Repository.AppointmentRepository;
 import pe.edu.upc.DocSeekerTP.Repository.DoctorRepository;
+import pe.edu.upc.DocSeekerTP.Repository.PatientRepository;
 import pe.edu.upc.DocSeekerTP.Services.AppointmentService;
 import pe.edu.upc.DocSeekerTP.entities.Appointment;
 import pe.edu.upc.DocSeekerTP.entities.Doctor;
+import pe.edu.upc.DocSeekerTP.entities.Patient;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class AppointmentServiceImpl implements AppointmentService {
 
-   @Autowired
+    @Autowired
     AppointmentRepository appointmentRepository;
+
+    @Autowired
+    PatientRepository patientRepository;
+
+    @Autowired
+    DoctorRepository doctorRepository;
 
     @Override
     public List<DTOAppointmentSummary> listAppointmentSummary() {
@@ -26,10 +34,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 
         for (Appointment appointment : appointmentRepository.findAll()) {
             String nameDoctor = appointment.getDoctor().getName();
-            String date = String.valueOf(appointment.getAppointmentDate());
+            LocalDate date = LocalDate.parse(String.valueOf(appointment.getAppointmentDate()));
             String reason = appointment.getReason();
             String state = appointment.getState();
-
             DTOAppointmentSummary dtoAppointmentSummary = new DTOAppointmentSummary(nameDoctor, date, reason, state);
             appointmentSummaryList.add(dtoAppointmentSummary);
         }
@@ -37,26 +44,29 @@ public class AppointmentServiceImpl implements AppointmentService {
         return appointmentSummaryList;
     }
 
-    @Autowired
-    private DoctorRepository doctorRepository;
-
     @Override
-    public Appointment createAppointment(DTOAppointmentCreate requestDTO) {
-        // Verificar si el doctor existe
-        Doctor doctor = doctorRepository.findById(requestDTO.getDoctorId())
-                .orElseThrow(() -> new NotFoundException("Doctor not found with ID: " + requestDTO.getDoctorId()));
+    public Appointment save(Appointment appointment) {
+        // Verificar si el paciente y el doctor existen
+        Long patientId = appointment.getPatient().getId();
+        Long doctorId = appointment.getDoctor().getId();
 
-        // Crear el Appointment
-        Appointment appointment = new Appointment();
-        appointment.setDoctor(doctor);
-        appointment.setAppointmentDate(requestDTO.getAppointmentDate());
-        appointment.setReason(requestDTO.getReason());
-        appointment.setTemperature(requestDTO.getTemperature());
-        appointment.setWeight(requestDTO.getWeight());
-        appointment.setState("Pendiente");
+        // Verificar que los IDs no sean nulos
+        if (patientId == null || doctorId == null) {
+            throw new ResourceNotFoundException("ID del paciente o del doctor no especificado en la cita");
+        }
 
-        // Guardar el Appointment
+        Patient existingPatient = patientRepository.findById(patientId)
+                .orElseThrow(() -> new ResourceNotFoundException("Paciente no encontrado"));
+
+        Doctor existingDoctor = doctorRepository.findById(doctorId)
+                .orElseThrow(() -> new ResourceNotFoundException("Doctor no encontrado"));
+
+        // Asociar el paciente y el doctor a la cita
+        appointment.setPatient(existingPatient);
+        appointment.setDoctor(existingDoctor);
+
+        // Guardar la cita
         return appointmentRepository.save(appointment);
     }
-}
 
+}

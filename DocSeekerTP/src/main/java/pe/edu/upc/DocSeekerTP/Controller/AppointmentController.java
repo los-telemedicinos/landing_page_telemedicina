@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.DocSeekerTP.Dtos.DTOAppointmentCreate;
 import pe.edu.upc.DocSeekerTP.Dtos.DTOAppointmentSummary;
 import pe.edu.upc.DocSeekerTP.Services.AppointmentService;
 import pe.edu.upc.DocSeekerTP.entities.Appointment;
+import pe.edu.upc.DocSeekerTP.entities.Doctor_Time;
 
 import java.util.List;
 
@@ -18,16 +18,15 @@ public class AppointmentController {
     @Autowired
     AppointmentService appointmentService;
 
-    @GetMapping("/appointment/summary")
-    public ResponseEntity<List<DTOAppointmentSummary>> getProjectsSummary() {
+    @GetMapping("/appointment")
+    public ResponseEntity<List<DTOAppointmentSummary>> getAppointmentsSummary() {
         List<DTOAppointmentSummary> dtoProjectSummaryList = appointmentService.listAppointmentSummary();
         return new ResponseEntity<List<DTOAppointmentSummary>>(dtoProjectSummaryList, HttpStatus.OK);
     }
 
-    @PostMapping("/appointment/register")
-    public ResponseEntity<Appointment> createAppointment(@RequestBody DTOAppointmentCreate requestDTO) {
-        Appointment newAppointment = appointmentService.createAppointment(requestDTO);
+    @PostMapping("/appointment")
+    public ResponseEntity<Appointment> createAppointment(@RequestBody Appointment appointment) {
+        Appointment newAppointment = appointmentService.save(appointment);
         return new ResponseEntity<>(newAppointment, HttpStatus.CREATED);
     }
-} //debo corregir esto
-//la relación?
+}

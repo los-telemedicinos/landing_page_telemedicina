@@ -12,4 +12,5 @@ public interface DoctorTimeService {
     public Doctor_Time findById(Long id);
 
     List<Doctor_Time> listAll();
+
 }

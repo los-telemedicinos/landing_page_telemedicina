@@ -47,16 +47,25 @@ http://localhost:8080/swagger-ui/index.html
         http.csrf().disable();
         http.cors(withDefaults());
         http.authorizeHttpRequests( (auth) ->auth
+                        .anyRequest().permitAll()
+                /*
                 .antMatchers(AUTH_WHITELIST).permitAll()
                 .antMatchers(HttpMethod.GET, "/api/doctors/").hasAnyAuthority("ROLE_PATIENT")
                 .antMatchers(HttpMethod.GET,"/time").hasAnyAuthority("ROLE_PATIENT")
                 .antMatchers(HttpMethod.GET,"/time/**").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/api/patient/update/").hasAnyAuthority("ROLE_PATIENT")
-                .antMatchers("/api/appointment/**").hasAnyAuthority("ROLE_PATIENT")
+                .antMatchers("/api/appointment/**").permitAll()
                 .antMatchers("/api/doctors/register/**").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/api/Register/**").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/api/users/**").permitAll()
+                .antMatchers("/api/prescription/**").permitAll()
+                .antMatchers("/api/speciality/**").permitAll()
+                .antMatchers("/api/technicalFile/**").permitAll()
+                .antMatchers("/api/medicines/**").permitAll()
+
                 .anyRequest().authenticated()
+
+                 */
         );
         http.sessionManagement( (session)-> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         return http.build();

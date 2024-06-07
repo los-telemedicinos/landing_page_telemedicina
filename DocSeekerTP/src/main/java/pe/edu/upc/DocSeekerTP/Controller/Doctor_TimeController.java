@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.DocSeekerTP.Repository.DoctorTimeRepository;
 import pe.edu.upc.DocSeekerTP.Services.DoctorTimeService;
 import pe.edu.upc.DocSeekerTP.entities.Doctor;
 import pe.edu.upc.DocSeekerTP.entities.Doctor_Time;
@@ -12,10 +13,11 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api/doctors")
+@RequestMapping("/api")
 public class Doctor_TimeController {
     @Autowired
     DoctorTimeService doctorTimeService;
+    DoctorTimeRepository doctorTimeRepository;
     @GetMapping("/time")
     public ResponseEntity<List<Doctor_Time>> getDoctor() {
         List<Doctor_Time> doctortimes = doctorTimeService.listAll();

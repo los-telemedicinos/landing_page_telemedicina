@@ -33,7 +33,7 @@ public class Doctor {
     @JoinColumn(name="speciality_id")
     private Speciality speciality ;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "doctor")
     private List<Appointment> appointments;
 

@@ -28,7 +28,10 @@ public class DocSeekerTpApplication {
 			AuthorityRepository authorityRepository,
 			SpecialityRepository specialityRepository,
 			PatientRepository patientRepository,
-			TechnicalFileRepository technicalFileRepository
+			TechnicalFileRepository technicalFileRepository,
+			MedicineRepository medicineRepository,
+			PrescriptionRepository prescriptionRepository,
+			AppointmentRepository appointmentRepository
 
 	){
 		return args -> {
@@ -69,10 +72,22 @@ public class DocSeekerTpApplication {
 
 			Patient patient1 = patientRepository.save(new Patient(0L,"Maria","Cifuentes Cegarra", LocalDate.of(2001,2,12),"Villa Maria del triunfo","Maria1@gmail.com","931678902","76750781"));
 			Patient patient2 =patientRepository.save(new Patient(0L,"Lucia","Arevalo Mendoza", LocalDate.of(1998,8,22),"San Miguel","avendañoalvarez@gmail.com","923678950","67894509"));
+			Patient patient3 =patientRepository.save(new Patient(0L,"Lina","Lee Park", LocalDate.of(1988,10,2),"Independencia","leeparklina@gmail.com","927890345","70895681"));
 
 			Technical_file technicalFileSave = technicalFileRepository.save(new Technical_file(0L,true,false,false,false,true,false,false,false,false,"","A positivo","Penicilina",patient1));
+			technicalFileRepository.save(new Technical_file(0L,false,false,false,false,true,false,false,false,true,"","B positivo","Ninguna",patient2));
 
+			Medicine medicine1 = medicineRepository.save(new Medicine(0L,"Paracetamol"));
+			Medicine medicine2 = medicineRepository.save(new Medicine(0L,"Ibuprofeno"));
+			Medicine medicine3 = medicineRepository.save(new Medicine(0L,"Amoxicilina"));
+			Medicine medicine4 = medicineRepository.save(new Medicine(0L,"Dexametasona"));
+			Medicine medicine5 = medicineRepository.save(new Medicine(0L,"Clonazepam"));
+
+
+			Appointment appointment1 = appointmentRepository.save(new Appointment(0L, LocalDate.of(2024,6,6),"Problemas cardivasculares","Pendiente",LocalDate.of(2024,6,6),30.8,40.2, patient1,doctor1));
+			Prescription prescription1=prescriptionRepository.save(new Prescription(0L,"El paciente fué atendido deberá tomar las medicinas recetadas",appointment1,medicine5));
 		};
+
 
 
 

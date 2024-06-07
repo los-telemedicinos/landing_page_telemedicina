@@ -1,5 +1,6 @@
 package pe.edu.upc.DocSeekerTP.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,12 @@ public class Medicine {
     private Long id;
     private String name_Medicines;
 
-    @OneToMany(mappedBy = "medicine", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "medicines")
     private List<Prescription> prescriptions;
+
+    public Medicine(Long id, String name_Medicines) {
+        this.id = id;
+        this.name_Medicines = name_Medicines;
+    }
 }

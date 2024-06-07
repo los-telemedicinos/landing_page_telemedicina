@@ -5,15 +5,23 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.DocSeekerTP.Services.SpecialityService;
+import pe.edu.upc.DocSeekerTP.entities.Doctor;
 import pe.edu.upc.DocSeekerTP.entities.Speciality;
+
+import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api/doctors")
+@RequestMapping("/api")
 public class SpecialityController {
- /*
+
     @Autowired
     SpecialityService specialityService;
+    @GetMapping("/speciality")
+    public ResponseEntity<List<Speciality>> getDoctor() {
+        List<Speciality> specialities= specialityService.listAll();
+        return new ResponseEntity<List<Speciality>>(specialities, HttpStatus.OK);
+    }
     @PostMapping("/speciality")
     public ResponseEntity<Speciality> createSpeciality(@RequestBody Speciality speciality) {
         Speciality newSpeciality = specialityService.save(speciality);
@@ -27,6 +35,5 @@ public class SpecialityController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-  */
 
 }
