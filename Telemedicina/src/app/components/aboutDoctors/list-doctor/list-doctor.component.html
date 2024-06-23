@@ -1,0 +1,42 @@
+<app-header-paciente></app-header-paciente>
+<main class="main">
+  <mat-form-field appearance="fill" class="custom-filter">
+    <mat-label>Buscar por nombre o especialidad</mat-label>
+    <div class="search-container">
+      <input matInput (input)="applyFilter($event)" [value]="filterValue" placeholder="Buscar">
+      <button mat-icon-button (click)="resetFilter()">
+        <mat-icon aria-label="Clear">clear</mat-icon>
+      </button>
+    </div>
+  </mat-form-field>
+
+  <div class="list_doctors">
+    <div *ngFor="let doctor of doctors" class="doctor-card">
+
+      <mat-card>
+        <mat-card-header>
+          <div mat-card-avatar class="doctor-image"></div>
+          <mat-card-title> Nombre: {{ doctor.name + ' ' + doctor.lastName }}</mat-card-title>
+          <mat-card-subtitle> Especialidad: {{ doctor.speciality.specialityName }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p> Nro Colegiatura: {{ doctor.tuitionNumber }}</p>
+        </mat-card-content>
+        <mat-card-content>
+          <p> Descripción: {{ doctor.doctorDetails }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button *ngIf="typeRols === 'Paciente'" mat-flat-button color="primary" style="margin-left: auto; background-color: #E3516B;" (click)="viewDoctorSchedule(doctor)">Ver Horario</button>
+          <button *ngIf="typeRols === 'Administrador'" mat-flat-button color="primary" style="margin-left: auto; background-color: #E3516B;" >Actualizar Horario</button>
+        </mat-card-actions>
+
+      </mat-card>
+    </div>
+  </div>
+  <div class="example-button-row btn_doctors">
+    <button *ngIf="typeRols === 'Administrador'" mat-flat-button color="primary" class="btn" (click)="goToCreateAccount()">agregar médico</button>
+  </div>
+</main>
+
+

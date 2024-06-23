@@ -1,0 +1,56 @@
+main{
+  height: 90vh;
+}
+
+.main{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  background-color: #D8E6ED;
+  min-height: 100%;
+}
+
+h2{
+  text-transform: uppercase;
+  font-size: 60px;
+  letter-spacing: normal;
+  line-height: normal;
+  width: auto;
+}
+
+.centrador{
+  margin: 0 auto;
+  max-width: 92%;
+}
+
+.message{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 75%;
+  margin: auto;
+}
+
+.text1{
+  font-weight: bold;
+  color: #DD304F;
+  text-shadow: 0 0 7px #000;
+}
+
+.text2{
+  font-style: italic;
+}
+
+.img-fondo{
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+img{
+  margin: 0;
+}
+
+p2{
+  margin-bottom: 0;
+}

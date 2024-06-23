@@ -1,0 +1,88 @@
+<main class="main">
+  <div class="package">
+    <div class="ti">
+      <img ngSrc="../../../../assets/img/perfil.png" alt="logo_register" height="175" width="175" class="logo">
+      <mat-card class="title">
+        <mat-card-content class="title-text">guardar información de doctor</mat-card-content>
+      </mat-card>
+    </div>
+
+    <form class="formulario" [formGroup]="crearForm">
+      <div class="example-form names">
+        <!--name-->
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="Nombre" class="input" formControlName="name">
+        </mat-form-field>
+        <!--lastName-->
+        <mat-form-field class="example-full-width">
+          <mat-label>Apellido</mat-label>
+          <input matInput placeholder="Apellido" class="input" formControlName="lastName">
+        </mat-form-field>
+      </div>
+
+      <!--email-->
+      <div class="info">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="alternate_email" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com" class="input">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!--dni-->
+      <div class="info">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="badge" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field class="example-full-width">
+            <mat-label>DNI</mat-label>
+            <input type="number" matInput placeholder="DNI" class="input" formControlName="dni">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!--tuitionNumber-->
+      <div class="info">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="verified_user" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field class="example-full-width">
+            <mat-label>Número de Colegiación</mat-label>
+            <input type="number" matInput placeholder="Número de Colegiación" class="input" formControlName="tuitionNumber">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!--speciality-->
+      <div class="info">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="star_half" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field class="example-full-width">
+            <mat-label>Especialidad</mat-label>
+            <mat-select (selectionChange)="onEspecialidadSeleccionadaChange($event)" formControlName="speciality">
+              <mat-option *ngFor="let speciality of specialities" [value]="speciality.id">{{speciality.specialityName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!--doctorDetails-->
+      <div class="info text-box">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="info" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field class="example-full-width">
+            <mat-label>Leave a comment</mat-label>
+            <textarea matInput placeholder="Ex. It makes me feel..." formControlName="doctorDetails" class="auto-resize-textarea"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="example-button-row btn">
+        <button mat-flat-button color="primary" class="btn" (click)="registrarDoctor()">crear cuenta</button>
+        <button mat-flat-button color="primary" class="btn" routerLink="/user/list-doctors">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  <img src="assets/img/doctors.png" alt="img" class="img-apoyo">
+</main>

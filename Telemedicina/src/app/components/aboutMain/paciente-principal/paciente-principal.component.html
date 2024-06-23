@@ -1,0 +1,9 @@
+<app-header-paciente></app-header-paciente>
+<div class="body">
+  <div class="div-btn">
+    <div class="example-button-row">
+      <button *ngIf="typeRols === 'Paciente'" mat-flat-button color="warn" class="btn" routerLink="/user/list-doctors">Citas</button>
+      <button *ngIf="typeRols === 'Administrador'" mat-flat-button color="warn" class="btn"  routerLink="/user/list-doctors">ver cronograma citas</button>
+    </div>
+  </div>
+</div>

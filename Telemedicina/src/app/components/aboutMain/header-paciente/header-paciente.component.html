@@ -1,0 +1,31 @@
+<mat-toolbar class="fondo">
+  <a routerLink="/user/main"><img ngSrc="../../../../assets/img/logo%20DocSeeker.png" height="80" width="182" alt="logo_DocSeeker" class="logo"></a>
+  <div class="caja_links">
+    <a class="links goHome" routerLink="/user/main">INICIO</a>
+    <a class="links" routerLink="/user/list-doctors">DIRECTORIO</a>
+    <a class="links" routerLink="/register/patient">CONSULTAS</a>
+    <a class="links" routerLink="/register/patient">CONTÁCTANOS</a>
+  </div>
+  <div class="info">
+    <div class="infor_user">
+      <p>{{fullName}}</p>
+      <ul>
+        <li> {{typeRols}}</li>
+      </ul>
+    </div>
+    <div class="cont_menu">
+      <button mat-button [matMenuTriggerFor]="menu" class="menu_desplegable">
+        <img ngSrc="../../../../assets/img/perfil.png" height="85" width="85">
+      </button>
+    </div>
+  </div>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="goToProfile()">
+      Perfil
+    </button>
+    <button mat-menu-item (click)="logout()">
+      Logout
+    </button>
+  </mat-menu>
+</mat-toolbar>
+

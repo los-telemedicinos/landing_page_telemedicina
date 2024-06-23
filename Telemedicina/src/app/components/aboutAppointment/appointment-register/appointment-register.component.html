@@ -1,0 +1,51 @@
+<main class="main">
+  <div class="package">
+    <div class="ti">
+      <img ngSrc="../../../../assets/img/perfil.png" alt="logo_register" height="175" width="175" class="logo">
+      <mat-card class="title">
+        <mat-card-content class="title-text">guardar información de doctor</mat-card-content>
+      </mat-card>
+    </div>
+
+    <form class="formulario" [formGroup]="crearForm">
+      <!--dni-->
+      <div class="info">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="badge" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field class="example-full-width">
+            <mat-label>Temperature</mat-label>
+            <input type="number" matInput placeholder="Temperature" class="input" formControlName="temperature">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!--tuitionNumber-->
+      <div class="info">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="verified_user" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field class="example-full-width">
+            <mat-label>Peso</mat-label>
+            <input type="number" matInput placeholder="Peso" class="input" formControlName="weight">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!--doctorDetails-->
+      <div class="info text-box">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="info" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field class="example-full-width">
+            <mat-label>Reason</mat-label>
+            <textarea matInput placeholder="Reason" formControlName="reason" class="auto-resize-textarea"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="example-button-row btn">
+        <button mat-flat-button color="primary" class="btn" (click)="registrarAppointment()">crear cuenta</button>
+        <button mat-flat-button color="primary" class="btn" routerLink="/user/list-doctors">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  <img src="assets/img/doctors.png" alt="img" class="img-apoyo">
+</main>

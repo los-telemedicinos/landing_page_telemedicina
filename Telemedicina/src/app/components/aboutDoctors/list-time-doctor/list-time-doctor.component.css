@@ -1,0 +1,9 @@
+.mat-card {
+  width: calc(80% - 10px); /* Ancho de la tarjeta (50% del contenedor menos el espacio entre tarjetas) */
+  margin: 5px; /* Espacio entre las tarjetas */
+}
+.mat-grid-tile{
+  height: 1%;
+  gap: 50px;
+}
+

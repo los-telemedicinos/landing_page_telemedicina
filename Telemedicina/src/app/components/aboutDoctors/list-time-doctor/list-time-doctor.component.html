@@ -1,0 +1,49 @@
+<div class="container">
+  <h2>Horarios del Doctor</h2>
+</div>
+
+<mat-form-field class="filtro-container">
+  <mat-label>Buscar por fecha</mat-label>
+  <input matInput [matDatepicker]="picker" placeholder="Selecciona una fecha" [(ngModel)]="fechaFiltro" [min]="minDate">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="aplicarFiltro()">Buscar</button>
+<button mat-raised-button color="primary" (click)="limpiarFilter()">Limpiar</button>
+<br><br>
+
+<div class="mat-card-container">
+  <mat-grid-list cols="2" rowHeight="250px">
+    <ng-container *ngIf="doctorTimes.length > 0; else noTimes">
+      <ng-container *ngFor="let time of doctorTimes">
+        <ng-container *ngIf="!time.usedAppointment">
+          <mat-grid-tile class="mat-grid-tile">
+            <mat-card class="mat-card">
+              <mat-card-header>
+                <mat-card-title>{{ time.day }}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>Hora de inicio: {{ time.startTime }}</p>
+                <p>Hora de fin: {{ time.endTime }}</p>
+                <mat-checkbox
+                  [(ngModel)]="time.hidden"
+                  (ngModelChange)="onCheckboxChange(time.id, time.day, $event)"
+                  [disabled]="isCheckboxDisabled(time.id)"
+                >Seleccionar</mat-checkbox>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+    <ng-template #noTimes>
+      <p>No hay horarios disponibles para la fecha seleccionada.</p>
+    </ng-template>
+  </mat-grid-list>
+</div>
+
+<div class="example-button-row btn_register">
+  <button mat-flat-button color="primary" class="btn" (click)="saveAppointment()">Agregar médico</button>
+  <button mat-flat-button color="primary" class="btn" routerLink="/user/list-doctors">Cancelar</button>
+</div>

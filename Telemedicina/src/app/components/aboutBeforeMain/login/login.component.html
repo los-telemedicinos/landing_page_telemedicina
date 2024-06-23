@@ -1,0 +1,43 @@
+<app-header-menu></app-header-menu>
+<main class="main">
+  <mat-card class="title">
+    <mat-card-content class="title-text">iniciar sesión</mat-card-content>
+  </mat-card>
+
+  <form class="formulario" [formGroup]="crearForm">
+<!--        [formGroup]="crearForm"-->
+    <!--username-->
+    <div class="login-container">
+      <div>
+        <mat-label class="label">usuario</mat-label>
+        <div class="info">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person" class="icon"></mat-icon>
+          <div class="large">
+            <mat-form-field class="example-full-width">
+              <mat-label>Usuario</mat-label>
+              <input matInput placeholder="Usuario" class="input" formControlName="username">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <!--password-->
+      <div>
+        <mat-label class="label">contraseña</mat-label>
+        <div class="info">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="password" class="icon"></mat-icon>
+          <div class="large">
+            <mat-form-field class="example-full-width">
+              <mat-label>Contraseña</mat-label>
+              <input type="password" matInput placeholder="Contraseña" class="input" formControlName="password">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="example-button-row btn">
+        <button mat-flat-button color="primary" class="btn" (click)="login()">iniciar sesión</button>
+      </div>
+    </div>
+  </form>
+</main>

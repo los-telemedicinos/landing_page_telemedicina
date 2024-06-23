@@ -1,0 +1,124 @@
+<app-header-menu class="menu"></app-header-menu>
+<main class="main">
+  <div>
+    <div class="ti">
+      <img ngSrc="../../../../assets/img/perfil.png" alt="logo_register" height="175" width="175" class="logo">
+    <mat-card class="title">
+      <mat-card-content class="title-text">registrarse</mat-card-content>
+    </mat-card>
+    </div>
+    
+    <form class="formulario" [formGroup]="crearForm">
+      <div class="example-form names">
+        <!--name-->
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="Nombre" class="input" formControlName="name">
+        </mat-form-field>
+        <!--lastName-->
+        <mat-form-field class="example-full-width">
+          <mat-label>Apellido</mat-label>
+          <input matInput placeholder="Apellido" class="input" formControlName="lastName">
+        </mat-form-field>
+      </div>
+  
+      <!--birthdate-->
+      <div class="info">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="calendar_month" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="birthdate">
+            <mat-hint>YYYY/MM/DD</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <!--address-->
+      <div class="info">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field class="example-full-width">
+            <mat-label>Dirección</mat-label>
+            <input matInput placeholder="Dirección" class="input" formControlName="address">
+          </mat-form-field>
+        </div>
+      </div>
+  
+  
+      <!--email-->
+      <div class="info">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="alternate_email" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com" class="input">
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <!--phoneNumber-->
+      <div class="info">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="call" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field class="example-full-width">
+            <mat-label>Teléfono</mat-label>
+            <input type="number" matInput placeholder="Teléfono" class="input" formControlName="phoneNumber">
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <!--dni-->
+      <div class="info">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="badge" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field class="example-full-width">
+            <mat-label>DNI</mat-label>
+            <input type="number" matInput placeholder="DNI" class="input" formControlName="dni">
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <!--username-->
+      <div class="info">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field class="example-full-width">
+            <mat-label>Usuario</mat-label>
+            <input matInput placeholder="Usuario" class="input" formControlName="username">
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <!--password-->
+      <div class="info">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="password" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field class="example-full-width">
+            <mat-label>Contraseña</mat-label>
+            <input type="password" matInput placeholder="Contraseña" class="input" formControlName="password">
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <!--repeat_password-->
+      <div class="info">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="password" class="icon"></mat-icon>
+        <div class="large">
+          <mat-form-field class="example-full-width">
+            <mat-label>Repetir Contraseña</mat-label>
+            <input type="password" matInput placeholder="Repetir Contraseña" class="input" formControlName="password_repeat">
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div class="example-button-row btn">
+        <button mat-flat-button color="primary" class="btn" (click)="registrarPaciente()">crear cuenta</button>
+        <button mat-flat-button color="primary" class="btn" routerLink="">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  <img src="assets/img/doctors.png" alt="img">
+</main>

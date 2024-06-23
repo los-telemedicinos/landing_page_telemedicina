@@ -1,0 +1,36 @@
+
+.logo{
+  border-radius: 50%;
+  box-shadow: 5px -2px 5px 1px #aaa;
+}
+
+.fondo{
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+}
+
+.example-button-row{
+  display: flex;
+  gap: 10%;
+  min-width: 180px;
+}
+
+.links{
+  color: #0E87AC;
+  text-decoration: none;
+  border-bottom: 3px solid #0E87AC;
+  font-size: 20px;
+}
+
+.links:hover{
+  scale: 105%;
+}
+
+.caja_links{
+  display: flex;
+  justify-content: space-between;
+  min-width: 180px;
+}
+
